@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Ingkee_dex2jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/Ingkee_dex2jar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/Ingkee_dex2jar.jar!/" />
+    </SOURCES>
+  </library>
+</component>
