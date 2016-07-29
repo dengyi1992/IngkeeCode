@@ -53,10 +53,14 @@ public class GetInfoThread implements Runnable {
 
                 }
                 System.out.println(codeString);
-
-                Scanner scanner1 = new Scanner(System.in);
-                System.out.println("请输入验证码:");
-                String code = scanner1.next();
+                if (!codeString.startsWith(phonenum)){
+                    System.out.println("未接收到验证码");
+                    return;
+                }
+                String code = codeString.substring(codeString.indexOf("【映客】") + "【映客】".length(), codeString.indexOf("【映客】") + "【映客】".length() + 4);
+//                Scanner scanner1 = new Scanner(System.in);
+//                System.out.println("请输入验证码:");
+//                String code = scanner1.next();
                 String secret1 = Phone.getSecret1(getRealPhone1(phonenum, code));
                 String loginjson = "{\"secret\":\"" +secret1+
                         "\",\"phone\":\"" +phone1+
@@ -68,18 +72,18 @@ public class GetInfoThread implements Runnable {
                     @Override
                     public void onRequestComplete(String result) {
                         System.out.println("最后登录信息:"+result);
-                        JSONObject uesrInfo = new JSONObject(result);
-                        uesrInfo.put("phone",phonenum);
-                        try {
-                            HttpUtils.doPostAsy(UPLOADURL, uesrInfo.toString(), new HttpUtils.CallBack() {
-                                @Override
-                                public void onRequestComplete(String result) {
-                                    System.out.println(result);
-                                }
-                            });
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
+//                        JSONObject uesrInfo = new JSONObject(result);
+//                        uesrInfo.put("phone",phonenum);
+//                        try {
+//                            HttpUtils.doPostAsy(UPLOADURL, uesrInfo.toString(), new HttpUtils.CallBack() {
+//                                @Override
+//                                public void onRequestComplete(String result) {
+//                                    System.out.println(result);
+//                                }
+//                            });
+//                        }catch (Exception e){
+//                            e.printStackTrace();
+//                        }
 
                     }
                 });

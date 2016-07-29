@@ -5,11 +5,11 @@ package com.company.utils;
  */
 public class GetPhones {
     public static String token;
-    public static String[] getNumbers(){
+    public static String[] getNumbers(int count){
         String ApiLoginInfo = HttpUtils.doGet("http://api.yma0.com/http.aspx?action=loginIn&uid=wangyou&pwd=redhat");
         token = ApiLoginInfo.substring("wangyou|".length());
         String GetNum = "http://api.yma0.com/http.aspx?action=getMobilenum&pid=19662&uid=wangyou&token=" + token +
-                "&size=1";
+                "&size="+count;
 //        System.out.println(GetNum);
         String num = HttpUtils.doGet(GetNum);
         String[] split = num.split("\\|");

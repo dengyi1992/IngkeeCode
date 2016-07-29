@@ -99,8 +99,9 @@ public class Main {
 
 //        System.out.println(loginjson);
 
-        String[] nums = GetPhones.getNumbers();
-        if (nums.length!=1){
+        int count = 3;
+        String[] nums = GetPhones.getNumbers(count);
+        if (nums.length!=count){
             System.out.println("获取不到资源，请手动释放手机号资源");
         }else {
 //            System.out.println(Arrays.toString(nums));
