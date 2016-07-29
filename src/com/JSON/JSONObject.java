@@ -463,13 +463,13 @@ public class JSONObject {
      * @throws JSONException
      *             if the key is not found.
      */
-    public Object get(String key) throws JSONException {
+    public Object get(String key) throws org.json.JSONException {
         if (key == null) {
-            throw new JSONException("Null key.");
+            throw new org.json.JSONException("Null key.");
         }
         Object object = this.opt(key);
         if (object == null) {
-            throw new JSONException("JSONObject[" + quote(key) + "] not found.");
+            throw new org.json.JSONException("JSONObject[" + quote(key) + "] not found.");
         }
         return object;
     }

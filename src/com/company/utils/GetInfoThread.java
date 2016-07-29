@@ -72,12 +72,10 @@ public class GetInfoThread implements Runnable {
                     @Override
                     public void onRequestComplete(String result) {
                         System.out.println("最后登录信息:"+result);
-                        JSONObject uesrInfo = new JSONObject(result);
-                        JSONObject user = uesrInfo.getJSONObject("user");
-                        String error_msg = user.getString("error_msg");
-                        if (!error_msg.equals("操作成功")){
+                        if (result.contains("错误"))
                             return;
-                        }
+                        JSONObject uesrInfo = new JSONObject(result);
+
                         uesrInfo.put("phone",phonenum);
                         try {
                             HttpUtils.doPostAsy(UPLOADURL, uesrInfo.toString(), new HttpUtils.CallBack() {
