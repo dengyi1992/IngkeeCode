@@ -72,18 +72,23 @@ public class GetInfoThread implements Runnable {
                     @Override
                     public void onRequestComplete(String result) {
                         System.out.println("最后登录信息:"+result);
-//                        JSONObject uesrInfo = new JSONObject(result);
-//                        uesrInfo.put("phone",phonenum);
-//                        try {
-//                            HttpUtils.doPostAsy(UPLOADURL, uesrInfo.toString(), new HttpUtils.CallBack() {
-//                                @Override
-//                                public void onRequestComplete(String result) {
-//                                    System.out.println(result);
-//                                }
-//                            });
-//                        }catch (Exception e){
-//                            e.printStackTrace();
-//                        }
+                        JSONObject uesrInfo = new JSONObject(result);
+                        JSONObject user = uesrInfo.getJSONObject("user");
+                        String error_msg = user.getString("error_msg");
+                        if (!error_msg.equals("操作成功")){
+                            return;
+                        }
+                        uesrInfo.put("phone",phonenum);
+                        try {
+                            HttpUtils.doPostAsy(UPLOADURL, uesrInfo.toString(), new HttpUtils.CallBack() {
+                                @Override
+                                public void onRequestComplete(String result) {
+                                    System.out.println(result);
+                                }
+                            });
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
 
                     }
                 });

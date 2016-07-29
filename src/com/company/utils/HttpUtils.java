@@ -99,7 +99,7 @@ public class HttpUtils {
      *            发送请求的URL
      * @return URL 所代表远程资源的响应结果
      */
-    public static String doGet(String url) {
+    public static synchronized String  doGet(String url) {
         String result = "";
         BufferedReader in = null;
         try {
