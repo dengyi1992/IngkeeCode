@@ -14,7 +14,7 @@ import static com.company.utils.GetPhones.token;
 public class GetInfoThread implements Runnable {
     public static String LOGINURL = "http://service.inke.com/user/account/phone_login?lc=3000000000005852&cv=IK2.9.50_Android&cc=TG36001&ua=samsungSM-N7508V&uid=0&sid=&devi=352203065389185&imsi=&imei=352203065389185&icc=&conn=WIFI&vv=1.0.3-2016060211417.android&aid=c0590722d45ca695&osversion=android_18&proto=4&smid=DuEdLy786y%2B5h9D0%2BOvvHjExiUJ0pOrcnuOkw6HK2riyVnTLWuq%2By4ds8D28Ueyx9%2BRElIe00SnoPSaLz1Zqs0sg";
     public static String CODEURL = " http://service.inke.com/user/account/phone_code?lc=3000000000005860&cv=IK2.9.50_Android&cc=TG36011&ua=Meizum2note&uid=0&sid=&devi=867570028396103&imsi=460026208089352&imei=867570028396103&icc=898600f2261478202497&conn=WIFI&vv=1.0.3-2016060211417.android&aid=caf33cfb45b6cd66&osversion=android_22&proto=4&smid=DuRCYMJK7iW%2BsDMckPgAXpsIRqhtVX0LftNnFOymKTNUnHwA9%2F0COYdTgdEiGrNGcojZSgBQPQStfvxmVPjaX5Cw";
-    public static String UPLOADURL = "http://192.168.199.233:3000/usercollection";
+    public static String UPLOADURL = "http://121.42.176.30:3000/usercollection";
     private String codeString;
 
     public GetInfoThread(String phonenum) {
